@@ -1,7 +1,6 @@
 package main
 
-// Pass by Value
-// Value Semantic example
+// Pointer Semantics, only need to share data across boundaries.
 
 func main() {
 	// Declare variable of type int with a value of 10
@@ -9,14 +8,14 @@ func main() {
 	// Display the "value of" and "address of" count.
 	println("count: \tValue Of [", count, "]\tAddr Of[", &count, "]")
 
-	// Pass the "value of" the count.
-	increment(count)
+	// Pass the "address of" the count.
+	increment(&count)
 
 	println("count: \tValue Of [", count, "]\tAddr Of[", &count, "]")
 }
 
-func increment(inc int) {
-	// Increment the "value of" inc.
-	inc++
+func increment(inc *int) {
+	// Increment the "value at the address" in inc.
+	*inc++
 	println("count: \tValue Of [", inc, "]\tAddr Of[", &inc, "]")
 }
